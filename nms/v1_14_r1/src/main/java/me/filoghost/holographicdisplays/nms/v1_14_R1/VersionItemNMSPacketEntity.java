@@ -30,6 +30,7 @@ class VersionItemNMSPacketEntity implements ItemNMSPacketEntity {
                 new EntitySpawnNMSPacket(itemID, EntityTypeID.ITEM, position, ITEM_Y_OFFSET),
                 EntityMetadataNMSPacket.builder(itemID)
                         .setItemStack(itemStack)
+                        .setCustomName(itemStack.getItemMeta().getDisplayName())
                         .build(),
                 new EntityMountNMSPacket(vehicleID, itemID)
         );
@@ -39,6 +40,7 @@ class VersionItemNMSPacketEntity implements ItemNMSPacketEntity {
     public PacketGroup newChangePackets(ItemStack itemStack) {
         return EntityMetadataNMSPacket.builder(itemID)
                 .setItemStack(itemStack)
+                .setCustomName(itemStack.getItemMeta().getDisplayName())
                 .build();
     }
 
